@@ -5,11 +5,21 @@
     <title>Title</title>
 </head>
 <body>
-<hr/>
-<td>
+<hr>
+<!--td>
     <th>{{ id }}</th>
     <th>{{ copa }}</th>
     <th>{{ liga }}</th>
-</td>
+</td-->
+
+<!--
+Aqui como ves estoy recorriendo el html asi de la misma forma como se recorrienra en el .py
+y llamo los valores de la misma forma, siempre si vas a utilizar esta forma necesitas recorrer el json con un for.
+-->
+{% for x in response %}
+    <p>{{ x['id'] }}</p>
+    <p>{{ x['caption'] }}</p>
+    <p>{{ x['league'] }}</p>
+{% endfor %}
 </body>
 </html>
