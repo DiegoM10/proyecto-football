@@ -61,14 +61,18 @@ body, html {height: 100%}
       <table class="table">
         <thead>
           <tr>
+
             <th>Equipo Local</th>
             <th>Goles</th>
             <th>Goles</th>
             <th>Equipo Visitante</th>
+
+
           </tr>
         </thead>
         <tbody>
         {% for x in response %}
+
           {% if x['result']['goalsHomeTeam'] and x['result']['goalsAwayTeam'] != 'None' %}}
             <tr>
                <td>{{ x['homeTeamName'] }}</td>
@@ -78,6 +82,15 @@ body, html {height: 100%}
 
             </tr>
           {% endif %}
+
+          <tr>
+             <td>{{ x['homeTeamName'] }}</td>
+             <td>{{ x['result']['goalsHomeTeam'] }}</td>
+              <td>{{ x['result']['goalsAwayTeam'] }}</td>
+             <td>{{ x['awayTeamName'] }}</td>
+
+          </tr>
+
         {% endfor %}
         </tbody>
       </table>
