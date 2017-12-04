@@ -10,8 +10,6 @@ def init():
     headers = {'X-Auth-Token': '6f89e625709d4b11af33273c70007ae9', 'X-Response-Control': 'minified'}
     connection.request('GET', '/v1/competitions', None, headers)
     response = json.loads(connection.getresponse().read().decode())
-    #Como son llamados diferentes tengo que poner el llamado de cada una aparte arriba estoy llamando una
-    #Y abajo otra y si ves la igualo en otra variable
     connection.request('GET', '/v1/competitions/445/leagueTable', None, headers)
     premier = json.loads(connection.getresponse().read().decode())
     connection.request('GET', '/v1/competitions/455/leagueTable', None, headers)

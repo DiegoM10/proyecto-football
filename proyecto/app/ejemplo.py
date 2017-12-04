@@ -10,7 +10,8 @@ response= json.loads(connection.getresponse().read().decode())
 print(response['fixtures'])
 
 for x in response['fixtures']:
-    h = x['result']['goalsHomeTeam']
-    v = x['result']['goalsAwayTeam']
-    if h and v is not None:
-        print('goles en casa', h ,'Goles equipo Visitante',v)
+    print(x)
+    # h = x['result']['goalsHomeTeam']
+    # v = x['result']['goalsAwayTeam']
+    # if h and v is not None:
+    #     print('goles en casa', h ,'Goles equipo Visitante',v)
