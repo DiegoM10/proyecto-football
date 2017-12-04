@@ -6,16 +6,10 @@
 </head>
 <body>
  {% for x in response %}
-
              <p>{{ x['homeTeamName'] }}</p>
-          <p>{{ x['result']['goalsHomeTeam'] }}</p>
+             <p>{{ x['result']['goalsHomeTeam'] }}</p>
              <p>{{ x['awayTeamName'] }}</p>
-
              <p>{{ x['result']['goalsAwayTeam']}}</p>
-
-
-
-
  {% endfor %}
 
 </body>
