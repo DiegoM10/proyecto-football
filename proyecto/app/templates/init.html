@@ -1,55 +1,17 @@
-<!--DOCTYPE html>
-<html lang="en">
-<head>
-     <title>Total Football</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-</head>
-<body background="../static/fondo.jpg" style=" background-size:100%;">
-<hr>
-Aqui como ves estoy recorriendo el html asi de la misma forma como se recorrienra en el .py
-y llamo los valores de la misma forma, siempre si vas a utilizar esta forma necesitas recorrer el json con un for.
-
-<div class="container">
-  <h3>Tabs</h3>
-  <ul class="nav nav-tabs">
-      <li class="active"><a href="#">Home</a></li>
-
-      <li><a href="/premier">Premier League</a></li>
-      <li><a href="#">Liga BBVA</a></li>
-      <li><a href="#">Serie A</a></li>
-      <li><a href="#">BundesLiga</a></li>
-  </ul>
-  <br>
-{% for x in response %}
-  <font color="white">
-    <p >{{ x['id'] }}</p>
-    <p href="">{{ x['caption'] }}</p>
-    <p href="">{{ x['league'] }}</p>
-</font>
-      {% endfor %}
-</div>
-</body>
-</html-->
-
-
 <!DOCTYPE html>
 <html>
 <head>
 <style>
 body {font-family: Arial;}
 
-/* Style the tab */
+/*  */
 div.tab {
     overflow: hidden;
     border: 1px solid #ccc;
     background-color: #f1f1f1;
 }
 
-/* Style the buttons inside the tab */
+/* */
 div.tab button {
     background-color: inherit;
     float: left;
@@ -76,7 +38,7 @@ div.tab button.active {
 
 <div class="tab">
   <button class="tablinks" onclick="openMenu(event, 'Home')" id="defaultOpen">Home</button>
-  <button class="tablinks" onclick="openMenu(event, 'Premier')">Premier L</button>
+  <button class="tablinks" onclick="openMenu(event, 'Premier')">Premier League</button>
   <button class="tablinks" onclick="openMenu(event, 'BBVA')">BBVA</button>
   <button class="tablinks" onclick="openMenu(event, 'Bundes')">Bundes</button>
 </div>
@@ -86,9 +48,9 @@ div.tab button.active {
       <table class="table table-striped">
         <thead>
           <tr>
-            <th>Equipo</th>
-            <th>Puntos</th>
-            <th>Goles</th>
+            <th>Id</th>
+            <th>Copa</th>
+            <th>Liga</th>
           </tr>
         </thead>
         <tbody>
@@ -114,15 +76,15 @@ div.tab button.active {
             <th>Goles</th>
           </tr>
         </thead>
-        <tbody>
         {% for x in premier %}
+        <tbody>
           <tr>
             <td>{{ x['team'] }}</td>
             <td>{{ x['points'] }}</td>
             <td>{{ x['goals'] }}</td>
           </tr>
-        {% endfor %}
         </tbody>
+        {% endfor %}
       </table>
     </div>
 </div>
