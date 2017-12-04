@@ -10,8 +10,11 @@ def init():
     headers = {'X-Auth-Token': '6f89e625709d4b11af33273c70007ae9', 'X-Response-Control': 'minified'}
 
     #connection.request('GET', '/v1/competitions', None, headers)
-    connection.request('GET', '/v1/competitions/455/fixtures', None, headers)
+    connection.request('GET', '/v1/competitions/445/fixtures', None, headers)
     response = json.loads(connection.getresponse().read().decode())
+
+    connection.request('GET', '/v1/competitions/455/fixtures', None, headers)
+    resulbbva = json.loads(connection.getresponse().read().decode())
 
     connection.request('GET', '/v1/competitions/445/leagueTable', None, headers)
     premier = json.loads(connection.getresponse().read().decode())
@@ -31,7 +34,8 @@ def init():
     if request.method == 'GET':
         try:
             return render_template('init.html',premier = premier['standing'],bbva = bbva['standing'],
-                                   bundes = bundes['standing'], serieA = serieA['standing'],ligue = ligue['standing'],response = response['fixtures'])
+                                   bundes = bundes['standing'], serieA = serieA['standing'],ligue = ligue['standing'],response = response['fixtures'],
+                                   resulbbva = resulbbva['fixtures'])
         except Exception as e:
             print(e)
     return render_template('init.html')

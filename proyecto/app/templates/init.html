@@ -59,6 +59,9 @@ body, html {height: 100%}
 <div id="Home" class="tabcontent">
     <div class="container">
       <table class="table">
+          <font color="white">
+              <h3>Premier League</h3>
+          </font>
         <thead>
           <tr>
 
@@ -73,7 +76,7 @@ body, html {height: 100%}
         <tbody>
         {% for x in response %}
 
-          {% if x['result']['goalsHomeTeam'] and x['result']['goalsAwayTeam'] != 'None' %}}
+          {% if x['result']['goalsHomeTeam'] and x['result']['goalsAwayTeam'] != 'None' %}
             <tr>
                <td>{{ x['homeTeamName'] }}</td>
                <td>{{ x['result']['goalsHomeTeam'] }}</td>
@@ -83,13 +86,38 @@ body, html {height: 100%}
             </tr>
           {% endif %}
 
+
+        {% endfor %}
+        </tbody>
+      </table>
+      <table class="table">
+        <font color="white">
+        <h3>Liga BBVA</h3>
+            </font>
+        <thead>
           <tr>
-             <td>{{ x['homeTeamName'] }}</td>
-             <td>{{ x['result']['goalsHomeTeam'] }}</td>
-              <td>{{ x['result']['goalsAwayTeam'] }}</td>
-             <td>{{ x['awayTeamName'] }}</td>
+
+            <th>Equipo Local</th>
+            <th>Goles</th>
+            <th>Goles</th>
+            <th>Equipo Visitante</th>
+
 
           </tr>
+        </thead>
+        <tbody>
+        {% for x in resulbbva %}
+
+          {% if x['result']['goalsHomeTeam'] and x['result']['goalsAwayTeam'] != 'None' %}
+            <tr>
+               <td>{{ x['homeTeamName'] }}</td>
+               <td>{{ x['result']['goalsHomeTeam'] }}</td>
+              <td>{{ x['result']['goalsAwayTeam'] }}</td>
+               <td>{{ x['awayTeamName'] }}</td>
+
+            </tr>
+          {% endif %}
+
 
         {% endfor %}
         </tbody>
