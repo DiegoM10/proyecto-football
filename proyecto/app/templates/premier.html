@@ -1,17 +1,16 @@
 <!--DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<hr>
-<!--td>
-    <th>{{ id }}</th>
-    <th>{{ copa }}</th>
-    <th>{{ liga }}</th>
-</td-->
 
+<<<<<<< Updated upstream
 <!--
 Aqui como ves estoy recorriendo el html asi de la misma forma como se recorrienra en el .py
 y llamo los valores de la misma forma, siempre si vas a utilizar esta forma necesitas recorrer el json con un for.
@@ -52,6 +51,34 @@ y llamo los valores de la misma forma, siempre si vas a utilizar esta forma nece
         <td>{{ x['goals'] }}</td>
       </tr>
     {% endfor %}
+=======
+<div class="container">
+  <h2>Basic Table</h2>
+  <p>The .table class adds basic styling (light padding and only horizontal dividers) to a table:</p>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>posicion</th>
+        <th>Equipo</th>
+        <th>partidos</th>
+        <th>goles</th>
+        <th>Goles en contra</th>
+        <th>Diferencia de goles</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+      {% for x in response['standing'] %}
+        <td>{{ x['rank'] }}</td>
+         <td>{{ x['team'] }}</td>
+        <td>{{ x['playedGames'] }}</td>
+        <td>{{ x['goals'] }}</td>
+        <td>{{ x['goalsAgainst'] }}</td>
+        <td>{{ x['goalDifference'] }}</td>
+      {% endfor %}
+      </tr>
+
+>>>>>>> Stashed changes
     </tbody>
   </table>
 </div>

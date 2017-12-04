@@ -65,6 +65,33 @@ def init():
     #El que no los dejas vasio como el de abajo
     return render_template('init.html')
 
+<<<<<<< Updated upstream
+=======
+        #return render_template('inicio.html')
+
+@app.route('/premier',methods =['GET'])
+def premier():
+    connection = http.client.HTTPConnection('api.football-data.org')
+    headers = {'X-Auth-Token': '6f89e625709d4b11af33273c70007ae9 ', 'X-Response-Control': 'minified'}
+    connection.request('GET', '/v1/competitions/455/leagueTable', None, headers)
+    # connection.request('GET', '/v1/teams/524', None, headers )
+    response = json.loads(connection.getresponse().read().decode())
+
+
+
+    if request.method == 'GET':
+      try:
+       print(response['standing'])
+       for x in response['standing']:
+        print(x['rank'], x['team'], x['playedGames'], x['points'], x['goals'], x['goalsAgainst'],
+                    x['goalDifference'])
+
+        return render_template('premier.html',response = response)
+      except Exception as e:
+             print(e)
+
+    return render_template('premier.html')
+>>>>>>> Stashed changes
 
 if __name__ == '__main__':
     app.run()
