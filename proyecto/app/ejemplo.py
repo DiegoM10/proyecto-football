@@ -35,23 +35,36 @@ app = Flask('__name__')
 #
 #
 
+connection = http.client.HTTPConnection('api.football-data.org')
+headers = {'X-Auth-Token': '6f89e625709d4b11af33273c70007ae9', 'X-Response-Control': 'minified'}
+connection.request('GET', '/v1/competitions/455/fixtures', None, headers)
 
-@app.route('/')
-def log():
-    connection = http.client.HTTPConnection('api.football-data.org')
-    headers = {'X-Auth-Token': '6f89e625709d4b11af33273c70007ae9', 'X-Response-Control': 'minified'}
-    connection.request('GET', '/v1/competitions/455/fixtures', None, headers)
+response = json.loads(connection.getresponse().read().decode())
+try:
 
-    response = json.loads(connection.getresponse().read().decode())
-    if request.method == 'GET':
-       try:
-
-           return render_template('loq.html',response=response['fixtures'])
-       except Exception as e:
-           print(e)
-
-    return  render_template('loq.html')
+    print(response['fixtures'])
+    # return render_template('loq.html', response=response['fixtures'])
+except Exception as e:
+    print(e)
 
 
-if __name__ == '__main__':
-    app.run()
+#
+# @app.route('/')
+# def log():
+#     connection = http.client.HTTPConnection('api.football-data.org')
+#     headers = {'X-Auth-Token': '6f89e625709d4b11af33273c70007ae9', 'X-Response-Control': 'minified'}
+#     connection.request('GET', '/v1/competitions/455/fixtures', None, headers)
+#
+#     response = json.loads(connection.getresponse().read().decode())
+#     if request.method == 'GET':
+#        try:
+#
+#            return render_template('loq.html',response=response['fixtures'])
+#        except Exception as e:
+#            print(e)
+#
+#     return  render_template('loq.html')
+#
+#
+# if __name__ == '__main__':
+#     app.run()

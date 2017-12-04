@@ -61,19 +61,23 @@ body, html {height: 100%}
       <table class="table">
         <thead>
           <tr>
-            <th>Id</th>
-            <th>Copa</th>
-            <th>Liga</th>
+            <th>Equipo Local</th>
+            <th>Goles</th>
+            <th>Goles</th>
+            <th>Equipo Visitante</th>
           </tr>
         </thead>
         <tbody>
         {% for x in response %}
-          <tr>
-             <td>{{ x['homeTeamName'] }}</td>
-             <td>{{ x['result']['goalsHomeTeam'] }}</td>
-             <td>{{ x['awayTeamName'] }}</td>
-             <td>{{ x['result']['goalsAwayTeam'] }}</td>
-          </tr>
+          {% if x['result']['goalsHomeTeam'] and x['result']['goalsAwayTeam'] != 'None' %}}
+            <tr>
+               <td>{{ x['homeTeamName'] }}</td>
+               <td>{{ x['result']['goalsHomeTeam'] }}</td>
+              <td>{{ x['result']['goalsAwayTeam'] }}</td>
+               <td>{{ x['awayTeamName'] }}</td>
+
+            </tr>
+          {% endif %}
         {% endfor %}
         </tbody>
       </table>
