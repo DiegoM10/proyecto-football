@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--DOCTYPE html>
 <html lang="en">
 <head>
      <title>Total Football</title>
@@ -10,25 +10,20 @@
 </head>
 <body background="../static/fondo.jpg" style=" background-size:100%;">
 <hr>
-<!--td>
-
-
-<!--
 Aqui como ves estoy recorriendo el html asi de la misma forma como se recorrienra en el .py
 y llamo los valores de la misma forma, siempre si vas a utilizar esta forma necesitas recorrer el json con un for.
--->
+
 <div class="container">
   <h3>Tabs</h3>
   <ul class="nav nav-tabs">
       <li class="active"><a href="#">Home</a></li>
 
-      <li><a href="#">Premier League</a></li>
+      <li><a href="/premier">Premier League</a></li>
       <li><a href="#">Liga BBVA</a></li>
       <li><a href="#">Serie A</a></li>
       <li><a href="#">BundesLiga</a></li>
   </ul>
   <br>
-
 {% for x in response %}
   <font color="white">
     <p >{{ x['id'] }}</p>
@@ -37,9 +32,127 @@ y llamo los valores de la misma forma, siempre si vas a utilizar esta forma nece
 </font>
       {% endfor %}
 </div>
+</body>
+</html-->
 
 
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {font-family: Arial;}
 
+/* Style the tab */
+div.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+div.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* color de cuando pasas el raton*/
+div.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Color del boton activo */
+div.tab button.active {
+    background-color: #ccc;
+}
+</style>
+</head>
+<body>
+
+<div class="tab">
+  <button class="tablinks" onclick="openMenu(event, 'Home')" id="defaultOpen">Home</button>
+  <button class="tablinks" onclick="openMenu(event, 'Premier')">Premier L</button>
+  <button class="tablinks" onclick="openMenu(event, 'BBVA')">BBVA</button>
+  <button class="tablinks" onclick="openMenu(event, 'Bundes')">Bundes</button>
+</div>
+
+<div id="Home" class="tabcontent">
+    <div class="container">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Equipo</th>
+            <th>Puntos</th>
+            <th>Goles</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for x in response %}
+          <tr>
+            <td>{{ x['id'] }}</td>
+            <td>{{ x['caption'] }}</td>
+            <td>{{ x['league'] }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+</div>
+
+<div id="Premier" class="tabcontent">
+    <div class="container">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Equipo</th>
+            <th>Puntos</th>
+            <th>Goles</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for x in premier %}
+          <tr>
+            <td>{{ x['team'] }}</td>
+            <td>{{ x['points'] }}</td>
+            <td>{{ x['goals'] }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+</div>
+
+<div id="BBVA" class="tabcontent">
+  <h3>Tokyo</h3>
+  <p>Tokyo is the capital of Japan.</p>
+</div>
+
+<div id="Bundes" class="tabcontent">
+  <h3>Tokyo</h3>
+  <p>Tokyo is the capital of Japan.</p>
+</div>
+
+<script>
+function openMenu(evt, menu) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(menu).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+document.getElementById("defaultOpen").click();
+</script>
 
 </body>
 </html>

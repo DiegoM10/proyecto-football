@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -15,9 +15,46 @@
 <!--
 Aqui como ves estoy recorriendo el html asi de la misma forma como se recorrienra en el .py
 y llamo los valores de la misma forma, siempre si vas a utilizar esta forma necesitas recorrer el json con un for.
--->
+>
+{% for x in response %}
+<p>{{ x['team'], x[''] }}</p>
+{% endfor %}
+</body>
+</html-->
 
-<p>{{ response['standing'] }}</p>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Equipo</th>
+        <th>Puntos</th>
+        <th>Goles</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for x in response %}
+      <tr>
+        <td>{{ x['team'] }}</td>
+        <td>{{ x['points'] }}</td>
+        <td>{{ x['goals'] }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
 
 </body>
 </html>
