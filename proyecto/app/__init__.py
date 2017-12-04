@@ -44,9 +44,21 @@ def init():
 
         #return render_template('inicio.html')
 
-#@app.route('/goleadores',methods=['POST'])
-#def goleadores():
-#   return render_template('goleadores.html')
+@app.route('/premier',methods =['GET'])
+def premier():
+    connection = http.client.HTTPConnection('api.football-data.org')
+    headers = {'X-Auth-Token': '6f89e625709d4b11af33273c70007ae9 ', 'X-Response-Control': 'minified'}
+    connection.request('GET', '/v1/competitions/445/leagueTable', None, headers)
+    response = json.loads(connection.getresponse().read().decode())
+    if request.method == 'GET':
+        try:
+
+
+           return render_template('premier.html',response = response)
+        except Exception as e:
+            print(e)
+
+    return render_template('premier.html')
 
 if __name__ == '__main__':
     app.run()

@@ -1,18 +1,21 @@
 import http.client
 import json
-
+from flask import Flask, render_template, request, redirect
 
 connection = http.client.HTTPConnection('api.football-data.org')
 headers = { 'X-Auth-Token': '6f89e625709d4b11af33273c70007ae9 ', 'X-Response-Control': 'minified' }
-connection.request('GET', '/v1/competitions', None, headers )
+connection.request('GET', '/v1/competitions/455/leagueTable', None, headers )
 #connection.request('GET', '/v1/teams/524', None, headers )
-response = json.loads(connection.getresponse().read().decode())
-#respuesta = json.loads(connection.getresponse().read().decode())
-#print (response)
-#print(respuesta)
-for x in response:
-    print(x["id"],x["caption"],x["league"],x["year"],x["currentMatchday"],x["numberOfMatchdays"],x["numberOfTeams"],
-          x["numberOfGames"],x["lastUpdated"])
+x= json.loads(connection.getresponse().read().decode())
+response = x
+#print(response)
+#for x in response:
+ #   print (x["id"])
+#for x in response:
+print(response['standing'])
+
+#print(x["rank"],x["team"],x["teamId"],x["playedGames"],
+ #         x["points"],x["goal"],x["goalsAgainst"],x["goalDifference"])
 
 
 
@@ -26,7 +29,7 @@ for x in response:
 
 
 #import requests
-import json
+#import json
 #from soccer import exceptions, leagueids, teamnames, writers
 #if __name__ =='__main__':
 

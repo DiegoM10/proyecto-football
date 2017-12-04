@@ -1,25 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+     <title>Total Football</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 </head>
-<body>
+<body background="../static/fondo.jpg" style=" background-size:100%;">
 <hr>
 <!--td>
-    <th>{{ id }}</th>
-    <th>{{ copa }}</th>
-    <th>{{ liga }}</th>
-</td-->
+
 
 <!--
 Aqui como ves estoy recorriendo el html asi de la misma forma como se recorrienra en el .py
 y llamo los valores de la misma forma, siempre si vas a utilizar esta forma necesitas recorrer el json con un for.
 -->
+<div class="container">
+  <h3>Tabs</h3>
+  <ul class="nav nav-tabs">
+      <li class="active"><a href="#">Home</a></li>
+
+      <li><a href="#">Premier League</a></li>
+      <li><a href="#">Liga BBVA</a></li>
+      <li><a href="#">Serie A</a></li>
+      <li><a href="#">BundesLiga</a></li>
+  </ul>
+  <br>
+
 {% for x in response %}
-    <p>{{ x['id'] }}</p>
-    <p>{{ x['caption'] }}</p>
-    <p>{{ x['league'] }}</p>
-{% endfor %}
+  <font color="white">
+    <p >{{ x['id'] }}</p>
+    <p href="">{{ x['caption'] }}</p>
+    <p href="">{{ x['league'] }}</p>
+</font>
+      {% endfor %}
+</div>
+
+
+
+
 </body>
 </html>
