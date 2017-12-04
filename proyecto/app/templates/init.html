@@ -57,6 +57,7 @@ body, html {height: 100%}
 </div>
 
 <div id="Home" class="tabcontent">
+    <center>
     <div class="container">
       <table class="table">
         <thead>
@@ -69,19 +70,32 @@ body, html {height: 100%}
         <tbody>
         {% for x in response %}
           <tr>
-            <td>{{ x['id'] }}</td>
-            <td>{{ x['caption'] }}</td>
-            <td>{{ x['league'] }}</td>
+             <td>{{ x['id'] }}</td>
+             <td>{{ x['caption'] }}</td>
+             <td>{{ x['league'] }}</td>
           </tr>
         {% endfor %}
         </tbody>
       </table>
+<<<<<<< Updated upstream
+=======
+        </font>
+
+>>>>>>> Stashed changes
     </div>
+      </center>
 </div>
 
 <div id="Premier" class="tabcontent">
+<<<<<<< Updated upstream
     <div class="container">
       <table class="table">
+=======
+  <center>
+  <div class="container">
+      <font color="white">
+      <table class="table table-striped">
+>>>>>>> Stashed changes
         <thead>
           <tr>
             <th>Posicion</th>
@@ -108,9 +122,14 @@ body, html {height: 100%}
         {% endfor %}
       </table>
     </div>
+    </center>
 </div>
 
 <div id="BBVA" class="tabcontent">
+<<<<<<< Updated upstream
+=======
+      <center>
+>>>>>>> Stashed changes
       <div class="container">
       <table class="table">
         <thead>
@@ -139,9 +158,11 @@ body, html {height: 100%}
         </tbody>
       </table>
     </div>
+        </center>
 </div>
 
 <div id="Bundesliga" class="tabcontent">
+  <center>
       <div class="container">
       <table class="table">
         <thead>
@@ -170,9 +191,11 @@ body, html {height: 100%}
         </tbody>
       </table>
     </div>
+    </center>
 </div>
 
 <div id="SerieA" class="tabcontent">
+  <center>
       <div class="container">
       <table class="table">
         <thead>
@@ -201,9 +224,11 @@ body, html {height: 100%}
         </tbody>
       </table>
     </div>
+    </center>
 </div>
 
 <div id="Ligue1" class="tabcontent">
+  <center>
       <div class="container">
       <table class="table">
         <thead>
@@ -232,6 +257,7 @@ body, html {height: 100%}
         </tbody>
       </table>
     </div>
+    </center>
 </div>
 <script>
 function openMenu(evt, menu) {

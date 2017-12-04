@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ {% for x in response %}
+
+             <p>{{ x['homeTeamName'] }}</p>
+          <p>{{ x['result']['goalsHomeTeam'] }}</p>
+             <p>{{ x['awayTeamName'] }}</p>
+
+             <p>{{ x['result']['goalsAwayTeam']}}</p>
+
+
+
+
+ {% endfor %}
+
+</body>
+</html>

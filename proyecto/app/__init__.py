@@ -44,5 +44,24 @@ def init():
     #El que no los dejas vasio como el de abajo
     return render_template('init.html')
 
+
+
+
+@app.route('/log')
+def log():
+    connection = http.client.HTTPConnection('api.football-data.org')
+    headers = {'X-Auth-Token': '6f89e625709d4b11af33273c70007ae9', 'X-Response-Control': 'minified'}
+    connection.request('GET', '/v1/competitions/455/fixtures', None, headers)
+
+    response = json.loads(connection.getresponse().read().decode())
+    if request.method == 'GET':
+       try:
+
+           return render_template('loq.html',response=response['fixtures'])
+       except Exception as e:
+           print(e)
+
+    return  render_template('loq.html')
+
 if __name__ == '__main__':
     app.run()
