@@ -13,17 +13,17 @@ body {font-family: Arial;}
 div.tab {
     overflow: hidden;
     border: 1px solid #ccc;
-    background-color: #f1f1f1;
+    background-color: #000000;
 }
 
 /* */
 div.tab button {
-    background-color: inherit;
+    background-color: #000000;
     float: left;
     border: none;
     outline: none;
     cursor: pointer;
-    padding: 14px 16px;
+    padding: 20px 30px;
     transition: 0.3s;
     font-size: 17px;
 }
@@ -45,15 +45,17 @@ div.tab button.active {
 body, html {height: 100%}
 </style>
 </head>
-<body  background="../static/fondo.jpg" style=" background-size: cover; background-position: center; min-height: 100%; ">
+<body  background="../static/barca.jpg" style=" background-size: cover; background-position: center; min-height: 100%; ">
 
-<div class="tab">
+<div class="tab" >
+    <font color="white">
   <button class="tablinks" onclick="openMenu(event, 'Home')" id="defaultOpen">Home</button>
   <button class="tablinks" onclick="openMenu(event, 'Premier')">Premier League</button>
-  <button class="tablinks" onclick="openMenu(event, 'BBVA')">BBVA</button>
+  <button class="tablinks" onclick="openMenu(event, 'BBVA')">La Liga</button>
   <button class="tablinks" onclick="openMenu(event, 'Bundesliga')">Bundesliga</button>
   <button class="tablinks" onclick="openMenu(event, 'SerieA')">SerieA</button>
   <button class="tablinks" onclick="openMenu(event, 'Ligue1')">Ligue1</button>
+</font>
 </div>
 
 <div id="Home" class="tabcontent">
@@ -92,7 +94,7 @@ body, html {height: 100%}
       </table>
       <table class="table">
         <font color="white">
-        <h3>Liga BBVA</h3>
+        <h3>La Liga</h3>
             </font>
         <thead>
           <tr>
@@ -122,7 +124,105 @@ body, html {height: 100%}
         {% endfor %}
         </tbody>
       </table>
+      <table class="table">
+          <font color="white">
+              <h3>Serie A</h3>
+          </font>
+        <thead>
+          <tr>
+
+            <th>Equipo Local</th>
+            <th>Goles</th>
+            <th>Goles</th>
+            <th>Equipo Visitante</th>
+
+
+          </tr>
+        </thead>
+        <tbody>
+        {% for x in resulserieA %}
+
+          {% if x['result']['goalsHomeTeam'] and x['result']['goalsAwayTeam'] != 'None' %}
+            <tr>
+               <td>{{ x['homeTeamName'] }}</td>
+               <td>{{ x['result']['goalsHomeTeam'] }}</td>
+              <td>{{ x['result']['goalsAwayTeam'] }}</td>
+               <td>{{ x['awayTeamName'] }}</td>
+
+            </tr>
+          {% endif %}
+
+
+        {% endfor %}
+        </tbody>
+      </table>
+       <table class="table">
+          <font color="white">
+              <h3>Bundes Liga</h3>
+          </font>
+        <thead>
+          <tr>
+
+            <th>Equipo Local</th>
+            <th>Goles</th>
+            <th>Goles</th>
+            <th>Equipo Visitante</th>
+
+
+          </tr>
+        </thead>
+        <tbody>
+        {% for x in resulbundes %}
+
+          {% if x['result']['goalsHomeTeam'] and x['result']['goalsAwayTeam'] != 'None' %}
+            <tr>
+               <td>{{ x['homeTeamName'] }}</td>
+               <td>{{ x['result']['goalsHomeTeam'] }}</td>
+              <td>{{ x['result']['goalsAwayTeam'] }}</td>
+               <td>{{ x['awayTeamName'] }}</td>
+
+            </tr>
+          {% endif %}
+
+
+        {% endfor %}
+        </tbody>
+      </table>
+      </table>
+       <table class="table">
+          <font color="white">
+              <h3>Ligue 1</h3>
+          </font>
+        <thead>
+          <tr>
+
+            <th>Equipo Local</th>
+            <th>Goles</th>
+            <th>Goles</th>
+            <th>Equipo Visitante</th>
+
+
+          </tr>
+        </thead>
+        <tbody>
+        {% for x in resulligue %}
+
+          {% if x['result']['goalsHomeTeam'] and x['result']['goalsAwayTeam'] != 'None' %}
+            <tr>
+               <td>{{ x['homeTeamName'] }}</td>
+               <td>{{ x['result']['goalsHomeTeam'] }}</td>
+              <td>{{ x['result']['goalsAwayTeam'] }}</td>
+               <td>{{ x['awayTeamName'] }}</td>
+
+            </tr>
+          {% endif %}
+
+
+        {% endfor %}
+        </tbody>
+      </table>
     </div>
+
 </div>
 
 <div id="Premier" class="tabcontent">

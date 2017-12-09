@@ -16,6 +16,15 @@ def init():
     connection.request('GET', '/v1/competitions/455/fixtures', None, headers)
     resulbbva = json.loads(connection.getresponse().read().decode())
 
+    connection.request('GET', '/v1/competitions/456/fixtures', None, headers)
+    resulserieA = json.loads(connection.getresponse().read().decode())
+
+    connection.request('GET', '/v1/competitions/452/fixtures', None, headers)
+    resulbundes = json.loads(connection.getresponse().read().decode())
+
+    connection.request('GET', '/v1/competitions/450/fixtures', None, headers)
+    resulligue = json.loads(connection.getresponse().read().decode())
+
     connection.request('GET', '/v1/competitions/445/leagueTable', None, headers)
     premier = json.loads(connection.getresponse().read().decode())
 
@@ -35,7 +44,8 @@ def init():
         try:
             return render_template('init.html',premier = premier['standing'],bbva = bbva['standing'],
                                    bundes = bundes['standing'], serieA = serieA['standing'],ligue = ligue['standing'],response = response['fixtures'],
-                                   resulbbva = resulbbva['fixtures'])
+                                   resulbbva = resulbbva['fixtures'], resulserieA = resulserieA['fixtures'],
+                                        resulbundes = resulbundes['fixtures'], resulligue = resulligue['fixtures'])
         except Exception as e:
             print(e)
     return render_template('init.html')
